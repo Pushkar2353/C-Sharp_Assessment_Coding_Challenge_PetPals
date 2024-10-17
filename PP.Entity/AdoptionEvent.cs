@@ -8,14 +8,11 @@ namespace PP.Entity
 {
     public class AdoptionEvent
     {
-        // Properties for EventID and EventName
         public int EventID { get; private set; }
         public string EventName { get; private set; }
 
-        // Public property to hold the list of participants
         public List<IAdoptable> Participants { get; private set; } = new List<IAdoptable>();
 
-        // Constructor to initialize EventID and EventName
         public AdoptionEvent(int eventID, string eventName)
         {
             EventID = eventID;
@@ -23,7 +20,6 @@ namespace PP.Entity
             Participants = new List<IAdoptable>();
         }
 
-        // Parameterless constructor
         public AdoptionEvent()
         {
             Participants = new List<IAdoptable>();

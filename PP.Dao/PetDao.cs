@@ -26,15 +26,12 @@ namespace PP.Dao
             List<Pet> pets = new List<Pet>();
             using (SqlConnection conn = DBConnUtil.GetConnection(connectionString))
             {
-                // Correct SQL command to select required columns
                 using (SqlCommand cmd = new SqlCommand("SELECT Name, Age, Breed FROM Pet", conn))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            // Ensure you have a constructor for Pet that accepts Name, Age, and Breed
-                            // Handle potential NULL values (if applicable)
                             string name = reader["Name"].ToString();
                             int age = reader.IsDBNull(reader.GetOrdinal("Age")) ? 0 : reader.GetInt32(reader.GetOrdinal("Age"));
                             string breed = reader["Breed"].ToString();
@@ -48,4 +45,5 @@ namespace PP.Dao
         }
     }
     }
+
 

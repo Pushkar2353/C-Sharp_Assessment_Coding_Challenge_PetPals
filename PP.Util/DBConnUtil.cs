@@ -16,7 +16,7 @@ namespace PP.Util
             SqlConnection connection = new SqlConnection(connectionString);
             try
             {
-                connection.Open(); // Make sure this is called
+                connection.Open();
                 return connection;
             }
             catch (SqlException sqlEx)

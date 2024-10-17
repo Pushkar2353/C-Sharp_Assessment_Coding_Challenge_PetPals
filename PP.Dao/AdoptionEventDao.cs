@@ -31,7 +31,6 @@ namespace PP.Dao
                     {
                         while (reader.Read())
                         {
-                            // Assuming you have a constructor for AdoptionEvent
                             events.Add(new AdoptionEvent(reader.GetInt32("EventID"), reader["EventName"].ToString()));
                         }
                     }
@@ -48,7 +47,7 @@ namespace PP.Dao
                 {
                     cmd.Parameters.AddWithValue("@ShelterID", shelterId);
                     cmd.Parameters.AddWithValue("@EventID", eventId);
-                    cmd.Parameters.AddWithValue("@PetID", petId);  // Ensure PetID is provided
+                    cmd.Parameters.AddWithValue("@PetID", petId);
                     cmd.Parameters.AddWithValue("@ParticipantName", participantName);
 
                     try
