@@ -121,7 +121,7 @@ namespace PetPals
                 Console.WriteLine("Invalid input. Please enter a valid amount for donation.");
             }
 
-            string filePath = "pets_data.txt";
+            string filePath = "appsettings.json";
             FileHandlingException.ReadPetDataFromFile(filePath);
 
             Console.WriteLine("\nEnd of the Pet Adoption Platform Demo.");
