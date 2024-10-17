@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,23 @@ namespace PP.Util
 {
     public static class DBPropertyUtil
     {
-        public static string GetConnectionString(string fileName)
+        private static IConfigurationRoot configuration;
+        static string s = null;
+        static DBPropertyUtil()
         {
-            return File.ReadAllText(fileName).Trim();
+            var builder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("C:\\Users\\pushk\\source\\repos\\PetPals_PP\\PP.Util\\appsettings.json",
+            optional: true, reloadOnChange: true);
+            configuration = builder.Build();
+        }
+        public static string ReturnCn(string key)
+        {
+            s = configuration.GetConnectionString("dbCn");
+            return s;
         }
     }
 }
+
 
 

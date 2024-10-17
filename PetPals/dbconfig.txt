@@ -1,2 +1,0 @@
-string connectionString = "Server=.\\sqlexpress;Database=PP;Integrated Security=true;";
-
